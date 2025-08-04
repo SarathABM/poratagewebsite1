@@ -1,0 +1,290 @@
+<div class="form-container">
+    <h2>Membership Form </h2>
+    <h2>MAP - Malayali Association of Portage la Prairie </h2>
+
+    <form action="https://formsubmit.co/info@portagemalayali.com" method="POST">
+        <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName" required>
+            <div class="error" id="fullNameError">Please enter your full name.</div>
+        </div>
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+            <div class="error" id="emailError">Please enter a valid email address.</div>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required>
+            <div class="error" id="phoneError">Please enter a valid phone number.</div>
+        </div>
+        <div class="form-group">
+            <label for="address">Address</label>
+            <textarea id="address" name="address" required></textarea>
+            <div class="error" id="addressError">Please enter your address.</div>
+        </div>
+        <div class="form-group">
+            <label for="membershipType">Membership Type</label>
+            <select id="membershipType" name="membershipType" required onchange="toggleFamilyDetails()">
+                <option value="" disabled selected>Select membership type</option>
+                <option value="individual">Individual</option>
+                <option value="family">Family</option>
+                <option value="student">Student</option>
+            </select>
+            <div class="error" id="membershipTypeError">Please select a membership type.</div>
+        </div>
+        <div id="familyDetails" style="display: none;">
+            <h3>Family Member Details</h3>
+            <div id="familyMembers">
+                <div class="family-member form-group">
+                    <label for="familyMember1Name">Family Member 1 Name</label>
+                    <input type="text" id="familyMember1Name" name="familyMember1Name">
+                    <label for="familyMember1Age">Age</label>
+                    <input type="number" id="familyMember1Age" name="familyMember1Age" min="0">
+                </div>
+            </div>
+            <button type="button" class="add-family-btn" onclick="addFamilyMember()">Add Another Family Member</button>
+        </div>
+        <div class="form-group checkbox">
+            <input type="checkbox" id="agree" name="agree" required>
+            <label for="agree">I agree to the terms and conditions</label>
+            <div class="error" id="agreeError">You must agree to the terms and conditions.</div>
+        </div>
+        <button type="button" class="submit-btn" onclick="validateForm()">Join Now</button>
+    </form>
+</div>
+
+<style>
+    body {
+        background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Inter', sans-serif;
+        margin: 0;
+    }
+
+    .form-container {
+        max-width: 600px;
+        width: 90%;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(10px);
+        margin: 20px;
+        transition: transform 0.3s ease;
+    }
+
+    .form-container:hover {
+        transform: translateY(-5px);
+    }
+
+    h2 {
+        color: #333;
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 2rem;
+        font-weight: 700;
+        background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+        position: relative;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        color: #444;
+        font-size: 1rem;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        width: 100%;
+        padding: 12px 15px;
+        border: 2px solid #ddd;
+        border-radius: 10px;
+        font-size: 1rem;
+        background: #f9f9f9;
+        transition: all 0.3s ease;
+        box-sizing: border-box;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+        border-color: #4ecdc4;
+        background: #fff;
+        outline: none;
+        box-shadow: 0 0 8px rgba(78, 205, 196, 0.3);
+    }
+
+    .form-group textarea {
+        resize: vertical;
+        min-height: 100px;
+    }
+
+    .error {
+        color: #ff6b6b;
+        font-size: 0.85rem;
+        margin-top: 5px;
+        display: none;
+        font-weight: 500;
+    }
+
+    .family-member {
+        background: rgba(78, 205, 196, 0.1);
+        border: 1px solid #4ecdc4;
+        border-radius: 10px;
+        padding: 15px;
+        margin-bottom: 15px;
+        transition: transform 0.3s ease;
+    }
+
+    .family-member:hover {
+        transform: scale(1.02);
+    }
+
+    .add-family-btn {
+        background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        margin-top: 10px;
+    }
+
+    .add-family-btn:hover {
+        background: linear-gradient(45deg, #e55a5a, #3bb8b0);
+        transform: translateY(-2px);
+    }
+
+    .checkbox {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .checkbox input {
+        width: auto;
+        margin: 0;
+    }
+
+    .checkbox label {
+        margin: 0;
+        font-size: 0.95rem;
+    }
+
+    .submit-btn {
+        width: 100%;
+        background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+        color: white;
+        border: none;
+        padding: 15px;
+        border-radius: 10px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .submit-btn:hover {
+        background: linear-gradient(45deg, #e55a5a, #3bb8b0);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 480px) {
+        .form-container {
+            padding: 20px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            font-size: 0.9rem;
+        }
+
+        .submit-btn {
+            font-size: 1rem;
+        }
+    }
+</style>
+
+<script>
+    let familyMemberCount = 1;
+
+    function toggleFamilyDetails() {
+        const membershipType = document.getElementById('membershipType').value;
+        const familyDetails = document.getElementById('familyDetails');
+        familyDetails.style.display = membershipType === 'family' ? 'block' : 'none';
+    }
+
+    function addFamilyMember() {
+        familyMemberCount++;
+        const familyMembersDiv = document.getElementById('familyMembers');
+        const newMemberDiv = document.createElement('div');
+        newMemberDiv.className = 'family-member form-group';
+        newMemberDiv.innerHTML = `
+            <label for="familyMember${familyMemberCount}Name">Family Member ${familyMemberCount} Name</label>
+            <input type="text" id="familyMember${familyMemberCount}Name" name="familyMember${familyMemberCount}Name">
+            <label for="familyMember${familyMemberCount}Age">Age</label>
+            <input type="number" id="familyMember${familyMemberCount}Age" name="familyMember${familyMemberCount}Age" min="0">
+        `;
+        familyMembersDiv.appendChild(newMemberDiv);
+    }
+
+    function validateForm() {
+        let isValid = true;
+        const fields = [
+            { id: 'fullName', errorId: 'fullNameError', validate: val => val.trim().length > 0 },
+            { id: 'email', errorId: 'emailError', validate: val => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val) },
+            { id: 'phone', errorId: 'phoneError', validate: val => /^\+?\d{10,15}$/.test(val.replace(/\D/g, '')) },
+            { id: 'address', errorId: 'addressError', validate: val => val.trim().length > 0 },
+            { id: 'membershipType', errorId: 'membershipTypeError', validate: val => val !== '' },
+            { id: 'agree', errorId: 'agreeError', validate: val => document.getElementById('agree').checked }
+        ];
+
+        fields.forEach(field => {
+            const input = document.getElementById(field.id);
+            const error = document.getElementById(field.errorId);
+            if (!field.validate(input.value)) {
+                error.style.display = 'block';
+                isValid = false;
+            } else {
+                error.style.display = 'none';
+            }
+        });
+
+        if (document.getElementById('membershipType').value === 'family') {
+            const familyMembers = document.querySelectorAll('.family-member input[type="text"]');
+            familyMembers.forEach((input, index) => {
+                if (input.value.trim().length === 0) {
+                    alert(`Please enter a name for Family Member ${index + 1}`);
+                    isValid = false;
+                }
+            });
+        }
+
+        if (isValid) {
+            document.querySelector('form').submit();
+        }
+    }
+</script>

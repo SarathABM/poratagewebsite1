@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAP - Malayali Association of Portage la Prairie</title>
+    <meta name="description"
+        content="Malayali Association of Portage la Prairie - Connecting Culture, Celebrating Community, Creating Togetherness">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'kerala-green': '#228B22',
+                        'kerala-gold': '#FFD700',
+                        'kerala-red': '#DC143C',
+                        'kerala-brown': '#8B4513'
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #228B22 0%, #32CD32 100%);
+        }
+
+        /* Slider Styles */
+        .slider-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            min-height: 100vh;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slider-dot.active {
+            background-color: #FFD700 !important;
+            transform: scale(1.2);
+        }
+
+        /* Event Slider Styles */
+        .event-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .event-slide.active {
+            opacity: 1;
+        }
+
+        .event-dot.active {
+            opacity: 1 !important;
+        }
+    </style>
+</head>
+
+<body class="bg-white">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-kerala-green to-green-600 text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <!-- Top Bar -->
+            <div class="flex justify-between items-center py-3 border-b border-green-400">
+                <div class="flex items-center space-x-4 text-sm">
+                    <span><i class="fas fa-envelope mr-2"></i>info@mapportage.com</span>
+                    <span><i class="fas fa-phone mr-2"></i>+1 (204) 595 6165</span>
+                </div>
+
+                <div class="flex space-x-3">
+                    <a href="https://www.facebook.com/share/1AzgoKVQkb/?mibextid=wwXIfr"
+                        class="hover:text-kerala-gold transition-colors"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/malayali_association_of_plp?igsh=NHVwYnJibmd0NWww"
+                        class="hover:text-kerala-gold transition-colors"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover:text-kerala-gold transition-colors"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <!-- Main Header -->
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-4">
+                    <div class="logo-container bg-kerala-gold rounded-full flex items-center justify-center">
+                        <img src="images/logo.JPG" alt="logo" class="img">
+                    </div>
+
+                    <style>
+                        .logo-container {
+                            width: 120px;
+                            /* Set desired width */
+                            height: 120px;
+                            /* Set desired height */
+                        }
+
+                        .logo-img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: contain;
+                        }
+                    </style>
+                    <div>
+                        <h1 class="text-2xl font-bold">Malayali Association of Portage la Prairie</h1>
+                        <p class="text-green-200 text-sm">Connecting Culture | Celebrating Community | Creating
+                            Togetherness</p>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden text-white hover:text-kerala-gold transition-colors">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="hover:text-kerala-gold transition-colors font-medium">Home</a>
+                    <a href="#about" class="hover:text-kerala-gold transition-colors font-medium">About</a>
+                    <a href="#services" class="hover:text-kerala-gold transition-colors font-medium">Services</a>
+                    <a href="#events" class="hover:text-kerala-gold transition-colors font-medium">Events</a>
+                    <a href="#membership" class="hover:text-kerala-gold transition-colors font-medium">Membership</a>
+                    <a href="#Leaders" class="hover:text-kerala-gold transition-colors font-medium">Leadership</a>
+                    <a href="#contact" class="hover:text-kerala-gold transition-colors font-medium">Contact</a>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <nav id="mobileMenu" class="md:hidden bg-green-700 hidden">
+            <div class="container mx-auto px-4 py-4 space-y-2">
+                <a href="#home" class="block hover:text-kerala-gold transition-colors font-medium py-2">Home</a>
+                <a href="#about" class="block hover:text-kerala-gold transition-colors font-medium py-2">About</a>
+                <a href="#services" class="block hover:text-kerala-gold transition-colors font-medium py-2">Services</a>
+                <a href="#events" class="block hover:text-kerala-gold transition-colors font-medium py-2">Events</a>
+                <a href="#membership"
+                    class="block hover:text-kerala-gold transition-colors font-medium py-2">Membership</a>
+                <a href="#Leaders" class="hover:text-kerala-gold transition-colors font-medium">Leadership</a>
+                <a href="#contact" class="block hover:text-kerala-gold transition-colors font-medium py-2">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section with Slider -->
+    <section id="home" class="relative min-h-screen overflow-hidden">
+        <div class="slider-container relative min-h-screen">
+            <!-- Slide 1 - Kerala Backwaters -->
+            <div class="slide active" style="background-image:  url('images/slide2.avif');">
+
+                <div
+                    class="container mx-auto px-4 text-center text-white flex items-center justify-center min-h-screen">
+                    <div>
+                        <h2 class="text-5xl md:text-7xl font-bold mb-6">Welcome to MAP</h2>
+                        <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Preserving and celebrating the rich
+                            cultural heritage of Kerala in the heart of Manitoba</p>
+                        <div class="space-x-4">
+                            <button onclick="scrollToMembership()"
+                                class="bg-kerala-gold text-kerala-green px-8 py-3 rounded-full font-semibold hover:bg-yellow-400 transition-colors text-lg">
+                                Join Our Community
+                            </button>
+                            <button onclick="document.querySelector('#about').scrollIntoView({behavior: 'smooth'})"
+                                class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-kerala-green transition-colors text-lg">
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2 - Kathakali Dance -->
+            <div class="slide" style="background-image:  url('images/kr1.webp');">
+                <div
+                    class="container mx-auto px-4 text-center text-white flex items-center justify-center min-h-screen">
+                    <div>
+                        <h2 class="text-5xl md:text-7xl font-bold mb-6">Cultural Programs</h2>
+                        <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Experience the beauty of Kathakali,
+                            classical music, and traditional Kerala arts</p>
+                        <button onclick="scrollToEvents()"
+                            class="bg-kerala-gold text-kerala-red px-8 py-3 rounded-full font-semibold hover:bg-yellow-400 transition-colors text-lg">
+                            View Events
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3 - Kerala Temple -->
+            <div class="slide" style="background-image: url('images/slide3.png');">
+                <div
+                    class="container mx-auto px-4 text-center text-kerala-green flex items-center justify-center min-h-screen">
+                    <div>
+                        <h2 class="text-5xl md:text-7xl font-bold mb-6">Community Together</h2>
+                        <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Building lasting friendships and support
+                            networks in the heart of Manitoba</p>
+                        <button onclick="scrollToMembership()"
+                            class="bg-kerala-green text-white px-8 py-3 rounded-full font-semibold hover:bg-green-700 transition-colors text-lg">
+                            Join Us Today
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slider Controls -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-10">
+            <button class="slider-dot active bg-kerala-gold w-3 h-3 rounded-full cursor-pointer transition-all"
+                data-slide="0"></button>
+            <button class="slider-dot bg-white bg-opacity-50 w-3 h-3 rounded-full cursor-pointer transition-all"
+                data-slide="1"></button>
+            <button class="slider-dot bg-white bg-opacity-50 w-3 h-3 rounded-full cursor-pointer transition-all"
+                data-slide="2"></button>
+        </div>
+
+        <!-- Navigation Arrows -->
+        <button
+            class="slider-prev absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-20 hover:bg-kerala-gold hover:text-kerala-green text-white w-12 h-12 rounded-full flex items-center justify-center transition-all z-10">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button
+            class="slider-next absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-20 hover:bg-kerala-gold hover:text-kerala-green text-white w-12 h-12 rounded-full flex items-center justify-center transition-all z-10">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </section>
+
+    <!-- About MAP Section -->
+    <section id="about" class="py-20 bg-gradient-to-b from-white to-green-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-kerala-green mb-6">About MAP</h2>
+                <div class="w-24 h-1 bg-kerala-gold mx-auto mb-8"></div>
+
+                <!-- Kerala Heritage Image Section -->
+                <div class="mb-12 max-w-4xl mx-auto">
+                    <div class="bg-gradient-to-r from-kerala-green via-kerala-gold to-kerala-red p-1 rounded-2xl">
+                        <div class="bg-white rounded-xl p-8 text-center">
+                            <!-- Logo Image with Size Control -->
+                            <div class="mb-6">
+                                <img src="images/logo.JPG" alt="Kerala Association Logo"
+                                    class="mx-auto h-60 w-auto rounded-lg shadow-md">
+                            </div>
+                            <h3 class="text-2xl font-bold text-kerala-green mb-4">Kerala Heritage in Manitoba</h3>
+                            <p class="text-gray-600">Bringing the beauty and traditions of God's Own Country to the
+                                Canadian prairies</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
+                    The Malayali Association of Portage la Prairie is a nonprofit, community-led organization dedicated
+                    to supporting and celebrating Malayali culture in Portage la Prairie, Manitoba. Through vibrant
+                    events, educational programs, and community services, we create a bridge between our rich heritage
+                    and our Canadian home.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-kerala-green rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-heart text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-kerala-green mb-4">Our Mission</h3>
+                    <p class="text-gray-600">To preserve, promote, and share the beautiful traditions of Kerala while
+                        fostering a strong, supportive community in Manitoba.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-kerala-red rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-users text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-kerala-red mb-4">Our Vision</h3>
+                    <p class="text-gray-600">A thriving Malayali community that celebrates cultural diversity while
+                        contributing meaningfully to Canadian society.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-kerala-gold rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-hands-helping text-kerala-green text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-kerala-gold mb-4">Our Values</h3>
+                    <p class="text-gray-600">Unity, cultural pride, community service, and the spirit of togetherness
+                        that defines the Malayali way of life.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Do Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-kerala-green mb-6">What We Do</h2>
+                <div class="w-24 h-1 bg-kerala-gold mx-auto mb-8"></div>
+                <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+                    Our diverse programs and services strengthen community bonds while celebrating our heritage
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div
+                    class="bg-kerala-green text-white p-8 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300 shadow-lg">
+                    <i class="fas fa-users text-4xl mb-6"></i>
+                    <h3 class="text-xl font-bold mb-4">Community Building</h3>
+                    <p class="text-green-100">Regular gatherings, social events, and networking opportunities that bring
+                        our community together</p>
+                </div>
+
+                <div
+                    class="bg-kerala-red text-white p-8 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300 shadow-lg">
+                    <i class="fas fa-theater-masks text-4xl mb-6"></i>
+                    <h3 class="text-xl font-bold mb-4">Cultural Promotion</h3>
+                    <p class="text-red-100">Dance performances, music concerts, and art exhibitions showcasing Kerala's
+                        rich cultural heritage</p>
+                </div>
+
+                <div
+                    class="bg-kerala-gold text-kerala-green p-8 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300 shadow-lg">
+                    <i class="fas fa-child text-4xl mb-6"></i>
+                    <h3 class="text-xl font-bold mb-4">Youth & Family Engagement</h3>
+                    <p class="text-yellow-800">Programs for children and families to learn Malayalam, traditional arts,
+                        and cultural values</p>
+                </div>
+
+                <div
+                    class="bg-kerala-brown text-white p-8 rounded-xl text-center hover:transform hover:scale-105 transition-all duration-300 shadow-lg">
+                    <i class="fas fa-hands-helping text-4xl mb-6"></i>
+                    <h3 class="text-xl font-bold mb-4">Support & Services</h3>
+                    <p class="text-amber-100">Assistance with settlement, translation services, and support during
+                        important life events</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section id="Leaders" class="py-20 bg-gradient-to-b from-green-50 to-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-kerala-green mb-6">Our Leaders</h2>
+                <div class="w-24 h-1 bg-kerala-gold mx-auto mb-8"></div>
+                <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+                    Meet the dedicated individuals who guide our community with passion and vision
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+
+                <!-- President -->
+                <div
+                    class="bg-white rounded-xl shadow-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+                    <div class="h-48  flex items-center justify-center">
+                        <!-- <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center">
+                           <img src="images/057936EA-DEC7-4505-8A60-5787E1E44471 2.jpg" alt="">
+                        </div> -->
+                        <div
+                            style="width: 9.4rem; height: 6rem; background-color: white; border-radius: 9999px; display: flex; align-items: center; justify-content: center;">
+                            <img src="images/PHOTO-2025-07-23-20-40-47.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="p-6 text-center">
+                        <h3>Sajan George - President</h3>
+                        <p class="text-gray-600 text-sm">Leading with vision to strengthen community bonds and cultural
+                            heritage.</p>
+                    </div>
+                </div>
+                <!-- Vice President -->
+                <div
+                    class="bg-white rounded-xl shadow-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+                    <div class="h-48  flex items-center justify-center">
+                        <div
+                            style="width: 9.4rem; height: 6rem; background-color: white; border-radius: 9999px; display: flex; align-items: center; justify-content: center;">
+                            <img src="images/DIV.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="p-6 text-center">
+                        <h3>Divya Raj- Vice President</h3>
+                        <p class="text-gray-600 text-sm">Driving youth engagement and cultural initiatives with passion.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Secretary -->
+                <div
+                    class="bg-white rounded-xl shadow-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+                    <div class="h-48  flex items-center justify-center">
+                        <div
+                            style="width: 9.4rem; height: 6rem; background-color: white; border-radius: 9999px; display: flex; align-items: center; justify-content: center;">
+                            <img src="images/IMG_0947.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="p-6 text-center">
+                        <h3>Jins Joy - Secretary</h3>
+                        <p class="text-gray-600 text-sm">Ensuring smooth operations and effective communication.</p>
+                    </div>
+                </div>
+
+                <!-- Treasurer -->
+                <div
+                    class="bg-white rounded-xl shadow-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+                    <div class="h-48  flex items-center justify-center">
+                        <div
+                            style="width: 9.4rem; height: 6rem; background-color: white; border-radius: 9999px; display: flex; align-items: center; justify-content: center;">
+                            <img src="images/IMG_1103.JPG" alt="">
+                        </div>
+                    </div>
+                    <div class="p-6 text-center">
+                        <h3>Justin Kunjukunju - Treasurer</h3>
+                        <p class="text-gray-600 text-sm">Managing finances with transparency and strategic planning.</p>
+                    </div>
+                </div>
+
+                <!-- Media Coordinator -->
+                <div
+                    class="bg-white rounded-xl shadow-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+                    <div class="h-48  flex items-center justify-center">
+                        <div
+                            style="width: 9.4rem; height: 6rem; background-color: white; border-radius: 9999px; display: flex; align-items: center; justify-content: center;">
+                            <img src="images/IMG_1105.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="p-6 text-center">
+                        <h3>Aby M Sabu - Media Coordinator</h3>
+                        <p class="text-gray-600 text-sm">Leading with vision to strengthen community bonds and cultural
+                            heritage.</p>
+                    </div>
+                </div>
+
+                <!-- Cultural Coordinator -->
+                <div
+                    class="bg-white rounded-xl shadow-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+                    <div class="h-48  flex items-center justify-center">
+                        <div
+                            style="width: 9.4rem; height: 6rem; background-color: white; border-radius: 9999px; display: flex; align-items: center; justify-content: center;">
+                            <img src="images/J59A1273.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="p-6 text-center">
+                        <h3>Athira Lal - Cultural Coordinator</h3>
+                        <p class="text-gray-600 text-sm">Driving youth engagement and cultural initiatives with passion.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Cultural Coordinator -->
+                <div
+                    class="bg-white rounded-xl shadow-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+                    <div class="h-48  flex items-center justify-center">
+                        <div
+                            style="width: 9.4rem; height: 6rem; background-color: white; border-radius: 9999px; display: flex; align-items: center; justify-content: center;">
+                            <img src="images/IMG_1106.jpg" alt="">
+                        </div>
+
+                    </div>
+                    <div class="p-6 text-center">
+                        <h3>Tom Joseph - Cultural Coordinator</h3>
+                        <p class="text-gray-600 text-sm">Engaging young members and organizing youth-focused activities.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Youth Coordinator -->
+                <div
+                    class="bg-white rounded-xl shadow-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+                    <div class="h-48  flex items-center justify-center">
+                        <div
+                            style="width: 9.4rem; height: 6rem; background-color: white; border-radius: 9999px; display: flex; align-items: center; justify-content: center;">
+                            <img src="images/REJI.JPG" alt="">
+                        </div>
+                    </div>
+                    <div class="p-6 text-center">
+                        <h3>Rejimon Rajan - Youth Coordinator</h3>
+                        <p class="text-gray-600 text-sm">A Youth Coordinator organizes and leads programs, activities,
+                            or initiatives for young people.</p>
+                    </div>
+                </div>
+
+                <!--  Youth Coordinator -->
+                <div
+                    class="bg-white rounded-xl shadow-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+                    <div class="h-48  flex items-center justify-center">
+                        <div
+                            style="width: 9.4rem; height: 6rem; background-color: white; border-radius: 9999px; display: flex; align-items: center; justify-content: center;">
+                            <img src="images/PRA.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="p-6 text-center">
+                        <h3>Prasanth Joseph - Youth Coordinator</h3>
+                        <p class="text-gray-600 text-sm">A Youth Coordinator organizes and leads programs, activities,
+                            or initiatives for young people.</p>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Events Preview -->
+    <section id="events" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-kerala-green mb-6">Events & Programs</h2>
+                <div class="w-24 h-1 bg-kerala-gold mx-auto mb-8"></div>
+                <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+                    Join us for exciting events that bring our community together throughout the year
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Onam Celebration with Image Slider -->
+                <div
+                    class="bg-white rounded-xl shadow-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+                    <div class="relative h-48 overflow-hidden">
+                        <div class="event-slider" data-event="onam">
+                            <!-- Onam Image 1 - Pookalam -->
+                            <div class="event-slide active bg-kerala-gold  flex items-center justify-center h-48">
+                                <img src="images/d8136016-5623-42a2-ba0a-15043ea91ce2.JPG" alt="">
+                            </div>
+                            <!-- Onam Image 2 - Sadya -->
+                            <div class="event-slide bg-kerala-gold  flex items-center justify-center h-48">
+                                <img src="images/onam3.png" alt="">
+                            </div>
+                            <!-- Onam Image 3 - Dance -->
+                            <div class="event-slide bg-kerala-gold  flex items-center justify-center h-48">
+                                <img src="images/onam2.jpg" alt="">
+                            </div>
+                        </div>
+                        <!-- Event Slider Controls -->
+                        <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                            <button class="event-dot w-2 h-2 bg-white rounded-full opacity-50" data-slide="0"></button>
+                            <button class="event-dot w-2 h-2 bg-white rounded-full opacity-50" data-slide="1"></button>
+                            <button class="event-dot w-2 h-2 bg-white rounded-full opacity-50" data-slide="2"></button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-kerala-green mb-2">Onam Celebration</h3>
+                        <p class="text-gray-600 mb-4">Traditional harvest festival with Pookalam, Sadya, and cultural
+                            programs</p>
+                        <div class="flex items-center text-sm text-gray-500 mb-4">
+                            <i class="fas fa-calendar mr-2"></i>
+                            <span>September 2025</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Christmas & New Year with Image Slider -->
+                <div
+                    class="bg-white rounded-xl shadow-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+                    <div class="relative h-48 overflow-hidden">
+                        <div class="event-slider" data-event="christmas">
+                            <!-- Christmas Image 1 - Tree -->
+                            <div class="event-slide active bg-kerala-red  flex items-center justify-center h-48">
+                                <img src="images/ch1.jpg" alt="">
+                            </div>
+                            <!-- Christmas Image 2 - Church -->
+                            <div class="event-slide bg-kerala-red  flex items-center justify-center h-48">
+                                <img src="images/ch2.jpg" alt="">
+                            </div>
+                            <!-- Christmas Image 3 - Celebration -->
+                            <div class="event-slide bg-kerala-red  flex items-center justify-center h-48">
+                                <img src="images/ch3.jpg" alt="">
+                            </div>
+                        </div>
+                        <!-- Event Slider Controls -->
+                        <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                            <button class="event-dot w-2 h-2 bg-white rounded-full opacity-50" data-slide="0"></button>
+                            <button class="event-dot w-2 h-2 bg-white rounded-full opacity-50" data-slide="1"></button>
+                            <button class="event-dot w-2 h-2 bg-white rounded-full opacity-50" data-slide="2"></button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-kerala-red mb-2">Christmas & New Year</h3>
+                        <p class="text-gray-600 mb-4">Community celebration with carols, feast, and family activities
+                        </p>
+                        <div class="flex items-center text-sm text-gray-500 mb-4">
+                            <i class="fas fa-calendar mr-2"></i>
+                            <span>December 2025</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sports Day with Image Slider -->
+                <div
+                    class="bg-white rounded-xl shadow-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300">
+                    <div class="relative h-48 overflow-hidden">
+                        <div class="event-slider" data-event="sports">
+                            <!-- Sports Image 1 - Running -->
+                            <div class="event-slide active bg-kerala-green  flex items-center justify-center h-48">
+                                <img src="images/sport1.jpg" alt="">
+                            </div>
+                            <!-- Sports Image 2 - Trophy -->
+                            <div class="event-slide bg-kerala-green  flex items-center justify-center h-48">
+                                <img src="images/sport3.png" alt="">
+                            </div>
+                            <!-- Sports Image 3 - Team -->
+                            <div class="event-slide bg-kerala-green flex items-center justify-center h-48">
+                                <img src="images/sport3.png" alt="">
+                            </div>
+                        </div>
+                        <!-- Event Slider Controls -->
+                        <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                            <button class="event-dot w-2 h-2 bg-white rounded-full opacity-50" data-slide="0"></button>
+                            <button class="event-dot w-2 h-2 bg-white rounded-full opacity-50" data-slide="1"></button>
+                            <button class="event-dot w-2 h-2 bg-white rounded-full opacity-50" data-slide="2"></button>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-kerala-green mb-2">Sports Day</h3>
+                        <p class="text-gray-600 mb-4">Athletic competitions and games for all ages with prizes and
+                            entertainment</p>
+                        <div class="flex items-center text-sm text-gray-500 mb-4">
+                            <i class="fas fa-calendar mr-2"></i>
+                            <span>Summer 2025</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Membership Section -->
+    <section id="membership" class="py-20 bg-kerala-green text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Join the MAP Family</h2>
+                <div class="w-24 h-1 bg-kerala-gold mx-auto mb-8"></div>
+                <p class="text-xl text-green-100 max-w-3xl mx-auto">
+                    Become part of a vibrant community that celebrates culture, supports families, and creates lasting
+                    bonds
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-3xl font-bold mb-8">Why Join MAP?</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <i class="fas fa-star text-kerala-gold text-xl flex-shrink-0 mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold mb-2">Cultural Connection</h4>
+                                <p class="text-green-100">Stay connected with your roots through festivals, events, and
+                                    cultural programs</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <i class="fas fa-hands-helping text-kerala-gold text-xl flex-shrink-0 mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold mb-2">Community Support</h4>
+                                <p class="text-green-100">Access to a network of friends ready to help during important
+                                    moments</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <i class="fas fa-graduation-cap text-kerala-gold text-xl flex-shrink-0 mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold mb-2">Educational Programs</h4>
+                                <p class="text-green-100">Malayalam classes and cultural education for children and
+                                    adults</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white/10 rounded-xl p-8">
+                    <h3 class="text-2xl font-bold mb-6">Membership Types</h3>
+                    <div class="space-y-4">
+                        <div class="border border-white/20 rounded-lg p-4">
+                            <h4 class="font-semibold text-kerala-gold">Individual</h4>
+                            <p class="text-sm text-green-100">Perfect for single members</p>
+                        </div>
+                        <div class="border border-white/20 rounded-lg p-4">
+                            <h4 class="font-semibold text-kerala-gold">Family</h4>
+                            <p class="text-sm text-green-100">Includes spouse and children</p>
+                        </div>
+                        <div class="border border-white/20 rounded-lg p-4">
+                            <h4 class="font-semibold text-kerala-gold">Student</h4>
+                            <p class="text-sm text-green-100">Special rates for students</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <button onclick="window.location.href='form.html'"
+                    class="bg-kerala-gold text-kerala-green px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-400 transition-colors mr-4">
+                    Apply for Membership
+                </button>
+
+                <button onclick="downloadBrochure()"
+                    class="border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-kerala-green transition-colors">
+                    Download Brochure
+                </button>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="py-16 bg-gray-800 text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
+                <div class="w-16 h-1 bg-kerala-gold mx-auto mb-6"></div>
+                <p class="text-lg text-gray-300 max-w-2xl mx-auto">Have questions or want to get involved? Reach out to
+                    us!</p>
+            </div>
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="flex-1 bg-gray-700 rounded-lg p-6">
+                    <h3 class="text-xl font-bold mb-4">Contact Information</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center space-x-3"><i
+                                class="fas fa-envelope text-kerala-gold"></i><span>info@mapportage.com</span></div>
+                        <div class="flex items-center space-x-3"><i class="fas fa-phone text-kerala-gold"></i><span>+1
+                                (204) 595 6165</span></div>
+                        <div class="flex items-center space-x-3"><i
+                                class="fas fa-map-marker-alt text-kerala-gold"></i><span>Portage la Prairie, Manitoba,
+                                Canada</span></div>
+                    </div>
+                    <div class="mt-6">
+                        <h4 class="text-lg font-bold mb-3">Follow Us</h4>
+                        <div class="flex space-x-4">
+                            <a href="https://www.facebook.com/share/1AzgoKVQkb/?mibextid=wwXIfr"
+                                class="text-gray-400 hover:text-kerala-gold transition-colors text-xl"><i
+                                    class="fab fa-facebook"></i></a>
+                            <a href="https://www.instagram.com/malayali_association_of_plp?igsh=NHVwYnJibmd0NWww"
+                                class="text-gray-400 hover:text-kerala-gold transition-colors text-xl"><i
+                                    class="fab fa-instagram"></i></a>
+                            <a href="#" class="text-gray-400 hover:text-kerala-gold transition-colors text-xl"><i
+                                    class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-1 bg-gray-700 rounded-lg p-6">
+                    <h3 class="text-xl font-bold mb-4">Send us a Message</h3>
+                    <form action="https://formsubmit.co/info@portagemalayali.com" method="POST">
+                        <div id="contactForm" class="space-y-4">
+                            <input type="text" id="contactName" name="name" placeholder="Your Name" required
+                                class="w-full px-3 py-2 bg-gray-600 text-white rounded focus:outline-none focus:ring-2 focus:ring-kerala-gold">
+                            <input type="email" id="contactEmail" name="email" placeholder="Your Email" required
+                                class="w-full px-3 py-2 bg-gray-600 text-white rounded focus:outline-none focus:ring-2 focus:ring-kerala-gold">
+                            <textarea rows="3" id="contactMessage" name="message" placeholder="Your Message" required
+                                class="w-full px-3 py-2 bg-gray-600 text-white rounded focus:outline-none focus:ring-2 focus:ring-kerala-gold"></textarea>
+                            <button type="submit" onclick="submitContactForm()"
+                                class="w-full bg-kerala-gold text-kerala-green py-2 rounded font-semibold hover:bg-yellow-400 transition-colors">Send
+                                Message</button>
+                        </div>
+                    </form>
+                </div>
+                <div
+                    class="flex-1 bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg shadow-xl p-6 text-center transform hover:scale-105 transition-all duration-300">
+                    <h3 class="text-xl font-semibold text-kerala-red mb-1">This website designed and developed by</h3>
+                    <div class="relative mb-4">
+                        <div
+                            class="w-28 h-28 mx-auto bg-kerala-gold rounded-full flex items-center justify-center border-4 border-white shadow-md">
+                            <img src="images/057936EA-DEC7-4505-8A60-5787E1E44471 2.jpg" alt="Sarath Subru"
+                                class="rounded-full w-24 h-24 object-cover">
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-kerala-gold mb-1">Sarath Subru</h3>
+                    <p class="text-sm font-medium text-gray-700 mb-3">Web Developer</p>
+                    <p class="text-gray-600 text-sm leading-relaxed">Crafting dynamic, user-centric websites with a
+                        focus on performance and creativity.<br> Mobile No: 431 337 1833<br>Email: sarath.ks29@gmail.com
+                    </p>
+                </div>
+
+    </section>
+
+    <!-- Footer -->
+
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <p class="text-gray-400">
+                    &copy; 2025 Malayali Association of Portage la Prairie. All rights reserved.
+                </p>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop"
+        class="fixed bottom-6 right-6 bg-kerala-green text-white w-12 h-12 rounded-full shadow-lg hover:bg-green-700 transition-all duration-300 opacity-0 invisible">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Simple JavaScript -->
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function () {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const icon = this.querySelector('i');
+
+            mobileMenu.classList.toggle('hidden');
+
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            }
+        });
+
+        // Close mobile menu when clicking on links
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', function () {
+                document.getElementById('mobileMenu').classList.add('hidden');
+                const icon = document.getElementById('mobileMenuBtn').querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const targetPosition = targetElement.offsetTop - headerHeight;
+
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Back to top button
+        const backToTopBtn = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', function () {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.remove('opacity-0', 'invisible');
+                backToTopBtn.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopBtn.classList.add('opacity-0', 'invisible');
+                backToTopBtn.classList.remove('opacity-100', 'visible');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Initialize slider and event sliders
+        initSlider();
+        initEventSliders();
+
+        console.log('MAP Website loaded successfully!');
+
+        // Button navigation functions
+        function scrollToMembership() {
+            document.querySelector('#membership').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function scrollToEvents() {
+            document.querySelector('#events').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Make buttons globally accessible
+        window.scrollToMembership = scrollToMembership;
+        window.scrollToEvents = scrollToEvents;
+        window.showMembershipForm = showMembershipForm;
+        window.downloadBrochure = downloadBrochure;
+        window.submitContactForm = submitContactForm;
+
+        // Button functionality
+        function showMembershipForm() {
+            alert('Thank you for your interest in joining MAP! Please contact us at info@mapportage.com or call +1 (204) 555-0123 to complete your membership application. We offer Individual, Family, and Student membership options.');
+        }
+
+        function downloadBrochure() {
+            // Create a simple text-based brochure content
+            const brochureContent = `MALAYALI ASSOCIATION OF PORTAGE LA PRAIRIE (MAP)
+            
+ABOUT US:
+The Malayali Association of Portage la Prairie is a nonprofit, community-led organization dedicated to supporting and celebrating Malayali culture in Manitoba.
+
+OUR MISSION:
+To preserve, promote, and share the beautiful traditions of Kerala while fostering a strong, supportive community in Manitoba.
+
+MEMBERSHIP BENEFITS:
+• Cultural Connection - Stay connected with your roots through festivals and events
+• Community Support - Access to a network of friends during important moments
+• Educational Programs - Malayalam classes and cultural education
+• Family Activities - Programs for children and adults
+
+MEMBERSHIP TYPES:
+• Individual Membership
+• Family Membership (includes spouse and children)
+• Student Membership (special rates)
+
+CONTACT US:
+Email: info@mapportage.com
+Phone: +1 (204) 555-0123
+Location: Portage la Prairie, Manitoba, Canada
+
+Join us in celebrating Kerala culture in the heart of Manitoba!`;
+
+            // Create and download the brochure
+            const blob = new Blob([brochureContent], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'MAP_Brochure.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        function submitContactForm(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('contactName').value;
+            const email = document.getElementById('contactEmail').value;
+            const message = document.getElementById('contactMessage').value;
+
+            // Simulate form submission
+            alert(`Thank you, ${name}! Your message has been received. We will contact you at ${email} within 24 hours.`);
+
+            // Reset form
+            document.getElementById('contactForm').reset();
+        }
+
+        function initSlider() {
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.slider-dot');
+            const prevBtn = document.querySelector('.slider-prev');
+            const nextBtn = document.querySelector('.slider-next');
+            let currentSlide = 0;
+            let slideInterval;
+
+            function showSlide(index) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('active', 'bg-kerala-gold'));
+                dots.forEach(dot => dot.classList.add('bg-white', 'bg-opacity-50'));
+
+                slides[index].classList.add('active');
+                dots[index].classList.add('active', 'bg-kerala-gold');
+                dots[index].classList.remove('bg-white', 'bg-opacity-50');
+                currentSlide = index;
+            }
+
+            function nextSlide() {
+                const next = (currentSlide + 1) % slides.length;
+                showSlide(next);
+            }
+
+            function prevSlide() {
+                const prev = (currentSlide - 1 + slides.length) % slides.length;
+                showSlide(prev);
+            }
+
+            function startSlideshow() {
+                slideInterval = setInterval(nextSlide, 5000);
+            }
+
+            function stopSlideshow() {
+                clearInterval(slideInterval);
+            }
+
+            // Event listeners
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => showSlide(index));
+            });
+
+            nextBtn.addEventListener('click', () => {
+                nextSlide();
+                stopSlideshow();
+                startSlideshow();
+            });
+
+            prevBtn.addEventListener('click', () => {
+                prevSlide();
+                stopSlideshow();
+                startSlideshow();
+            });
+
+            // Touch support for mobile
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            document.querySelector('.slider-container').addEventListener('touchstart', e => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+
+            document.querySelector('.slider-container').addEventListener('touchend', e => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            });
+
+            function handleSwipe() {
+                if (touchEndX < touchStartX - 50) nextSlide();
+                if (touchEndX > touchStartX + 50) prevSlide();
+            }
+
+            // Pause on hover
+            document.querySelector('.slider-container').addEventListener('mouseenter', stopSlideshow);
+            document.querySelector('.slider-container').addEventListener('mouseleave', startSlideshow);
+
+            // Start slideshow
+            startSlideshow();
+        }
+
+        function initEventSliders() {
+            const eventSliders = document.querySelectorAll('.event-slider');
+
+            eventSliders.forEach(slider => {
+                const slides = slider.querySelectorAll('.event-slide');
+                const dots = slider.parentElement.querySelectorAll('.event-dot');
+                let currentSlide = 0;
+                let slideInterval;
+
+                function showEventSlide(index) {
+                    slides.forEach(slide => slide.classList.remove('active'));
+                    dots.forEach(dot => dot.classList.remove('active'));
+
+                    slides[index].classList.add('active');
+                    dots[index].classList.add('active');
+                    currentSlide = index;
+                }
+
+                function nextEventSlide() {
+                    const next = (currentSlide + 1) % slides.length;
+                    showEventSlide(next);
+                }
+
+                function startEventSlideshow() {
+                    slideInterval = setInterval(nextEventSlide, 3000);
+                }
+
+                function stopEventSlideshow() {
+                    clearInterval(slideInterval);
+                }
+
+                // Event listeners for dots
+                dots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => {
+                        showEventSlide(index);
+                        stopEventSlideshow();
+                        startEventSlideshow();
+                    });
+                });
+
+                // Initialize first dot as active
+                if (dots.length > 0) {
+                    dots[0].classList.add('active');
+                }
+
+                // Pause on hover
+                slider.addEventListener('mouseenter', stopEventSlideshow);
+                slider.addEventListener('mouseleave', startEventSlideshow);
+
+                // Start slideshow
+                startEventSlideshow();
+            });
+        }
+    </script>
+</body>
+
+</html>
